@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Es678 by 2765776613</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Es678</h1>
+      <h2 class="project-tagline">ES6、ES7、ES8的一些新特性</h2>
+      <a href="https://github.com/2765776613/ES678" class="btn">View on GitHub</a>
+      <a href="https://github.com/2765776613/ES678/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/2765776613/ES678/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h2>
+<a id="es6的一些新特性" class="anchor" href="#es6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E7%89%B9%E6%80%A7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ES6的一些新特性</h2>
+<h3>
+<a id="1-let和const" class="anchor" href="#1-let%E5%92%8Cconst" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. let和const</h3>
+<ol>
+<li>
+<p>之前js定义变量只有一个关键字：<code>var</code>    <strong>(<code>var</code>存在一个问题，就是定义的变量有时会莫名奇妙的成为全局变量)</strong></p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">for</span> <span class="pl-kos">(</span><span class="pl-k">var</span> <span class="pl-s1">i</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span><span class="pl-kos">;</span> <span class="pl-s1">i</span> <span class="pl-c1">&lt;</span> <span class="pl-c1">5</span><span class="pl-kos">;</span> <span class="pl-s1">i</span><span class="pl-c1">++</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">i</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">"循环外"</span> <span class="pl-c1">+</span> <span class="pl-s1">i</span><span class="pl-kos">)</span><span class="pl-kos">;</span>  <span class="pl-c">// 5</span></pre></div>
+<ol start="2">
+<li>
+<code>let</code>所声明的变量，只在<code>let</code>命令所在的代码块内有效。</li>
+</ol>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">for</span> <span class="pl-kos">(</span><span class="pl-k">let</span> <span class="pl-s1">i</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span><span class="pl-kos">;</span> <span class="pl-s1">i</span> <span class="pl-c1">&lt;</span> <span class="pl-c1">5</span><span class="pl-kos">;</span> <span class="pl-s1">i</span><span class="pl-c1">++</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">i</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">"循环外"</span> <span class="pl-c1">+</span> <span class="pl-s1">i</span><span class="pl-kos">)</span><span class="pl-kos">;</span>   <span class="pl-c">// 报错</span></pre></div>
+<ol start="3">
+<li>
+<code>const</code>声明的变量是常量，不能被修改</li>
+</ol>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-s1">a</span> <span class="pl-c1">=</span> <span class="pl-c1">10</span><span class="pl-kos">;</span>
+<span class="pl-s1">a</span> <span class="pl-c1">=</span> <span class="pl-c1">321</span><span class="pl-kos">;</span>  <span class="pl-c">// 报错</span></pre></div>
+</li>
+</ol>
+<h3>
+<a id="2-字符串扩展" class="anchor" href="#2-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%89%A9%E5%B1%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. 字符串扩展</h3>
+<ol>
+<li>
+<p><code>includes()</code>：返回布尔值，表示是否找到了参数字符串</p>
+</li>
+<li>
+<p><code>startsWith()</code>：返回布尔值，表示参数字符串是否在原字符串的头部。</p>
+</li>
+<li>
+<p><code>endsWith()</code>：返回布尔值，表示参数字符串是否在原字符串的尾部</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">let</span> <span class="pl-s1">str</span> <span class="pl-c1">=</span> <span class="pl-s">"hello"</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">str</span><span class="pl-kos">.</span><span class="pl-en">includes</span><span class="pl-kos">(</span><span class="pl-s">"ell"</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>  <span class="pl-c">// true</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">str</span><span class="pl-kos">.</span><span class="pl-en">startsWith</span><span class="pl-kos">(</span><span class="pl-s">"he"</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// true</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">str</span><span class="pl-kos">.</span><span class="pl-en">endsWith</span><span class="pl-kos">(</span><span class="pl-s">"llo"</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>  <span class="pl-c">// true</span></pre></div>
+</li>
+<li>
+<p>ES6中提供了`来作为字符串模板标记，在两个`之间的部分都会被作为字符串的值，不管你任意换行，甚至加入js脚本。</p>
+</li>
+</ol>
+<h3>
+<a id="3-解构表达式" class="anchor" href="#3-%E8%A7%A3%E6%9E%84%E8%A1%A8%E8%BE%BE%E5%BC%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. 解构表达式</h3>
+<ol>
+<li>
+<p>数组解构</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">let</span> <span class="pl-s1">arr</span> <span class="pl-c1">=</span> <span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">2</span><span class="pl-kos">,</span> <span class="pl-c1">3</span><span class="pl-kos">,</span> <span class="pl-c1">4</span><span class="pl-kos">]</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-kos">[</span><span class="pl-s1">x</span><span class="pl-kos">,</span> <span class="pl-s1">y</span><span class="pl-kos">,</span> <span class="pl-s1">z</span><span class="pl-kos">,</span> <span class="pl-kos">]</span> <span class="pl-c1">=</span> <span class="pl-s1">arr</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">x</span><span class="pl-kos">,</span> <span class="pl-s1">y</span><span class="pl-kos">,</span> <span class="pl-s1">z</span><span class="pl-kos">)</span><span class="pl-kos">;</span>  <span class="pl-c">// 1 2 3</span>
+<span class="pl-k">let</span> <span class="pl-kos">[</span><span class="pl-kos">,</span> ...<span class="pl-s1">rest</span><span class="pl-kos">]</span> <span class="pl-c1">=</span> <span class="pl-s1">arr</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">rest</span><span class="pl-kos">)</span><span class="pl-kos">;</span>  <span class="pl-c">// [2,3,4]</span></pre></div>
+</li>
+<li>
+<p>json对象解构</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-s1">person</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span>
+    <span class="pl-c1">name</span>:<span class="pl-s">"jack"</span><span class="pl-kos">,</span>
+    <span class="pl-c1">age</span>:<span class="pl-c1">21</span><span class="pl-kos">,</span>
+    <span class="pl-c1">language</span>: <span class="pl-kos">[</span><span class="pl-s">'java'</span><span class="pl-kos">,</span><span class="pl-s">'js'</span><span class="pl-kos">,</span><span class="pl-s">'css'</span><span class="pl-kos">]</span>
+<span class="pl-kos">}</span>
+<span class="pl-c">// 解构表达式获取值</span>
+<span class="pl-k">const</span> <span class="pl-kos">{</span>name<span class="pl-kos">,</span>age<span class="pl-kos">,</span>language<span class="pl-kos">}</span> <span class="pl-c1">=</span> <span class="pl-s1">person</span><span class="pl-kos">;</span>
+<span class="pl-c">// 浏览器控制台打印</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">name</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">age</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">language</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-kos">{</span> <span class="pl-c1">name</span>: <span class="pl-s1">n</span> <span class="pl-kos">}</span> <span class="pl-c1">=</span> <span class="pl-s1">person</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">n</span><span class="pl-kos">)</span><span class="pl-kos">;</span>   <span class="pl-c">// jack</span></pre></div>
+</li>
+</ol>
+<h3>
+<a id="4-函数优化" class="anchor" href="#4-%E5%87%BD%E6%95%B0%E4%BC%98%E5%8C%96" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. 函数优化</h3>
+<ol>
+<li>
+<p>函数参数可预设默认值</p>
+</li>
+<li>
+<p>箭头函数</p>
+<ul>
+<li>
+<p>一个参数时</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> <span class="pl-en">print</span> <span class="pl-c1">=</span> <span class="pl-k">function</span> <span class="pl-kos">(</span><span class="pl-s1">obj</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">obj</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span>
+<span class="pl-c">// 简写为：</span>
+<span class="pl-k">var</span> <span class="pl-en">print</span> <span class="pl-c1">=</span> <span class="pl-s1">obj</span> <span class="pl-c1">=&gt;</span> <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">obj</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+</li>
+<li>
+<p>多个参数时</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> <span class="pl-en">sum</span> <span class="pl-c1">=</span> <span class="pl-k">function</span> <span class="pl-kos">(</span><span class="pl-s1">a</span> <span class="pl-kos">,</span> <span class="pl-s1">b</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-k">return</span> <span class="pl-s1">a</span> <span class="pl-c1">+</span> <span class="pl-s1">b</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span>
+<span class="pl-c">// 简写为：</span>
+<span class="pl-k">var</span> <span class="pl-en">sum</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-s1">a</span><span class="pl-kos">,</span><span class="pl-s1">b</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-s1">a</span><span class="pl-c1">+</span><span class="pl-s1">b</span><span class="pl-kos">;</span></pre></div>
+</li>
+</ul>
+</li>
+</ol>
+<h3>
+<a id="5-map和reduce方法" class="anchor" href="#5-map%E5%92%8Creduce%E6%96%B9%E6%B3%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. map和reduce方法</h3>
+<ol>
+<li>
+<p><code> map()</code>：接收一个函数，将原数组中的所有元素用这个函数处理后放入新数组返回。</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">let</span> <span class="pl-s1">arr</span> <span class="pl-c1">=</span> <span class="pl-kos">[</span><span class="pl-s">'1'</span><span class="pl-kos">,</span> <span class="pl-s">'20'</span><span class="pl-kos">,</span> <span class="pl-s">'-5'</span><span class="pl-kos">,</span> <span class="pl-s">'3'</span><span class="pl-kos">]</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">arr</span><span class="pl-kos">)</span><span class="pl-kos">;</span>  <span class="pl-c">// ["1", "20", "-5", "3"]</span>
+<span class="pl-k">let</span> <span class="pl-s1">arr2</span> <span class="pl-c1">=</span> <span class="pl-s1">arr</span><span class="pl-kos">.</span><span class="pl-en">map</span><span class="pl-kos">(</span><span class="pl-s1">s</span> <span class="pl-c1">=&gt;</span> <span class="pl-en">parseInt</span><span class="pl-kos">(</span><span class="pl-s1">s</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">arr2</span><span class="pl-kos">)</span>  <span class="pl-c">// [1, 20, -5, 3]</span></pre></div>
+</li>
+<li>
+<p><code>reduce()</code>：接收一个函数（必须）和一个初始值（可选），它会从左到右依次把数组中的元素用reduce处理，并把处理的结果作为下次reduce的第一个参数。如果是第一次，会把前两个元素作为计算参数，或者把用户指定的初始值作为起始参数。</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-s1">arr</span> <span class="pl-c1">=</span> <span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">20</span><span class="pl-kos">,</span> <span class="pl-c1">-</span><span class="pl-c1">5</span><span class="pl-kos">,</span> <span class="pl-c1">3</span><span class="pl-kos">]</span><span class="pl-kos">;</span>
+<span class="pl-c">// 未指定初始值</span>
+<span class="pl-k">let</span> <span class="pl-s1">num</span> <span class="pl-c1">=</span> <span class="pl-s1">arr</span><span class="pl-kos">.</span><span class="pl-en">reduce</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-s1">a</span><span class="pl-kos">,</span> <span class="pl-s1">b</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-s1">a</span> <span class="pl-c1">+</span> <span class="pl-s1">b</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">num</span><span class="pl-kos">)</span><span class="pl-kos">;</span>  <span class="pl-c">// 1+20+-5+3=19</span>
+<span class="pl-c">// 指定初始值</span>
+<span class="pl-k">let</span> <span class="pl-s1">num2</span> <span class="pl-c1">=</span> <span class="pl-s1">arr</span><span class="pl-kos">.</span><span class="pl-en">reduce</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-s1">a</span><span class="pl-kos">,</span> <span class="pl-s1">b</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-s1">a</span> <span class="pl-c1">+</span> <span class="pl-s1">b</span><span class="pl-kos">,</span> <span class="pl-c1">1</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">num2</span><span class="pl-kos">)</span><span class="pl-kos">;</span>  <span class="pl-c">// 1+1+20+-5+3=20</span></pre></div>
+</li>
+</ol>
+<h3>
+<a id="6-promise" class="anchor" href="#6-promise" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. promise</h3>
+<ol>
+<li>
+<p>所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-s1">p</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Promise</span><span class="pl-kos">(</span><span class="pl-k">function</span> <span class="pl-kos">(</span><span class="pl-s1">resolve</span><span class="pl-kos">,</span> <span class="pl-s1">reject</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-c">// 这里我们用定时任务模拟异步</span>
+    <span class="pl-en">setTimeout</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+        <span class="pl-k">const</span> <span class="pl-s1">num</span> <span class="pl-c1">=</span> <span class="pl-v">Math</span><span class="pl-kos">.</span><span class="pl-en">random</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-c">// 随机返回成功或失败</span>
+        <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">num</span> <span class="pl-c1">&lt;</span> <span class="pl-c1">0.5</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+            <span class="pl-s1">resolve</span><span class="pl-kos">(</span><span class="pl-s">"成功！num:"</span> <span class="pl-c1">+</span> <span class="pl-s1">num</span><span class="pl-kos">)</span>  <span class="pl-c">// 调用resolve，代表Promise将返回成功的结果</span>
+        <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+            <span class="pl-s1">reject</span><span class="pl-kos">(</span><span class="pl-s">"出错了！num:"</span> <span class="pl-c1">+</span> <span class="pl-s1">num</span><span class="pl-kos">)</span> <span class="pl-c">// 调用reject，代表Promise会返回失败的结果</span>
+        <span class="pl-kos">}</span>
+    <span class="pl-kos">}</span><span class="pl-kos">,</span> <span class="pl-c1">300</span><span class="pl-kos">)</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span>
+
+<span class="pl-c">// 调用promise</span>
+<span class="pl-s1">p</span><span class="pl-kos">.</span><span class="pl-en">then</span><span class="pl-kos">(</span><span class="pl-k">function</span> <span class="pl-kos">(</span><span class="pl-s1">msg</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-c">// 异步执行成功后的回调</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">msg</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">catch</span><span class="pl-kos">(</span><span class="pl-k">function</span> <span class="pl-kos">(</span><span class="pl-s1">msg</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-c">// 异步执行失败后的回调</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">msg</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span></pre></div>
+</li>
+</ol>
+<h3>
+<a id="7-模块化" class="anchor" href="#7-%E6%A8%A1%E5%9D%97%E5%8C%96" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7. 模块化</h3>
+<ol>
+<li>
+<p>模块化就是把代码进行拆分，方便重复利用。类似java中的导包：要使用一个包，必须先导包。模块功能主要由两个命令构成：<code>export</code>和<code>import</code>。</p>
+<ul>
+<li>
+<code>export</code>命令用于规定模块的对外接口。</li>
+<li>
+<code>import</code>命令用于导入其他模块提供的功能。</li>
+</ul>
+</li>
+<li>
+<p><code>export</code>：</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// 导出对象</span>
+<span class="pl-k">export</span> <span class="pl-k">const</span> <span class="pl-s1">util</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span>
+    <span class="pl-en">sum</span><span class="pl-kos">(</span><span class="pl-s1">a</span><span class="pl-kos">,</span><span class="pl-s1">b</span><span class="pl-kos">)</span><span class="pl-kos">{</span>
+        <span class="pl-k">return</span> <span class="pl-s1">a</span> <span class="pl-c1">+</span> <span class="pl-s1">b</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+<span class="pl-kos">}</span>
+<span class="pl-c">// 导出变量</span>
+<span class="pl-k">var</span> <span class="pl-s1">name</span> <span class="pl-c1">=</span> <span class="pl-s">"jack"</span>
+<span class="pl-k">var</span> <span class="pl-s1">age</span> <span class="pl-c1">=</span> <span class="pl-c1">21</span>
+<span class="pl-k">export</span> <span class="pl-kos">{</span><span class="pl-s1">name</span><span class="pl-kos">,</span><span class="pl-s1">age</span><span class="pl-kos">}</span>	</pre></div>
+</li>
+<li>
+<p>使用<code>export</code>命令定义了模块的对外接口以后，其他 JS 文件就可以通过<code>import</code>命令加载这个模块。</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// 导入util</span>
+<span class="pl-k">import</span> <span class="pl-s1">util</span> <span class="pl-k">from</span> <span class="pl-s">'hello.js'</span>
+<span class="pl-c">// 调用util中的属性</span>
+<span class="pl-s1">util</span><span class="pl-kos">.</span><span class="pl-en">sum</span><span class="pl-kos">(</span><span class="pl-c1">1</span><span class="pl-kos">,</span><span class="pl-c1">2</span><span class="pl-kos">)</span>
+
+<span class="pl-k">import</span> <span class="pl-kos">{</span><span class="pl-s1">name</span><span class="pl-kos">,</span> <span class="pl-s1">age</span><span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'user.js'</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">name</span> <span class="pl-c1">+</span> <span class="pl-s">" , 今年"</span><span class="pl-c1">+</span> <span class="pl-s1">age</span> <span class="pl-c1">+</span><span class="pl-s">"岁了"</span><span class="pl-kos">)</span></pre></div>
+</li>
+</ol>
+<h3>
+<a id="8-数组扩展方法" class="anchor" href="#8-%E6%95%B0%E7%BB%84%E6%89%A9%E5%B1%95%E6%96%B9%E6%B3%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8. 数组扩展方法</h3>
+<ol>
+<li>find(callback)：把数组中的元素逐个传递给函数callback执行，如果返回true，则返回该元素</li>
+<li>findIndex(callback)：与find类似，不过返回的是匹配到的元素的索引</li>
+<li>includes(callback)：与find类似，如果匹配到元素，则返回true，代表找到了。</li>
+</ol>
+<h2>
+<a id="es7的新特性" class="anchor" href="#es7%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ES7的新特性</h2>
+<ol>
+<li>
+<p>什么是<code>async</code>、<code>await</code>？</p>
+<ul>
+<li>
+<p>async顾名思义是“异步”的意思，async用于声明一个函数是异步的。而await从字面意思上是“等待”的意思，就是用于等待异步完成。<strong>（await只能在async函数中使用）</strong></p>
+</li>
+<li>
+<p>通常async、await都是跟随Promise一起使用的。</p>
+</li>
+<li>
+<p>await得到Promise对象之后就等待Promise接下来的resolve或者reject。</p>
+</li>
+</ul>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">async</span> <span class="pl-k">function</span> <span class="pl-en">testSync</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+     <span class="pl-k">const</span> <span class="pl-s1">response</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-k">new</span> <span class="pl-v">Promise</span><span class="pl-kos">(</span><span class="pl-s1">resolve</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+         <span class="pl-en">setTimeout</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+             <span class="pl-en">resolve</span><span class="pl-kos">(</span><span class="pl-s">"async await test..."</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+          <span class="pl-kos">}</span><span class="pl-kos">,</span> <span class="pl-c1">1000</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+     <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+     <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">response</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span>
+<span class="pl-en">testSync</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-c">//async await test...</span></pre></div>
+</li>
+</ol>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/2765776613/ES678">Es678</a> is maintained by <a href="https://github.com/2765776613">2765776613</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
